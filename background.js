@@ -1,0 +1,1 @@
+browser.tabs.onCreated.addListener(c)
