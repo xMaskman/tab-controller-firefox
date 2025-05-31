@@ -3,6 +3,10 @@
   "name": "Borderify",
   "version": "1.0",
   "description": "Adds a red border to all webpages matching mozilla.org.",
+  "permissions": [
+    "tabs"],
+  "host_permissions": [
+    "<all_urls>" ],
   
   "action": {
     "default_popup": "popup.html"
@@ -25,6 +29,8 @@
         "scripts": ["background.js"]
 
     }
+
+
    
 
 
