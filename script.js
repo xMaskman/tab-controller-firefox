@@ -1,4 +1,4 @@
-
+const checker = new Set();
 
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("testbutton");
@@ -23,6 +23,7 @@ setInterval(async () => {
     console.log("All Tabs found:", tabs.length);
     tabs.forEach(tab => {
       console.log(`Title: ${tab.title || "(no title)"} | URL: ${tab.url || "(no url)"}`);
+      checker.add(tab.title)
     });
   } catch (err) {
     console.error("Error getting all tabs:", err);
@@ -46,3 +47,8 @@ setInterval(async () => {
     console.error("Error getting audible tabs:", err);
   }
 }, 5000);
+
+
+
+
+
