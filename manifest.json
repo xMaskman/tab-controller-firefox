@@ -1,38 +1,34 @@
 {
-  "manifest_version": 3,
-  "name": "Borderify",
+  "manifest_version": 2,
+  "name": "Tab Organizer",
   "version": "1.0",
-  "description": "Adds a red border to all webpages matching mozilla.org.",
-  "permissions": [
-    "tabs"],
-  "host_permissions": [
-    "<all_urls>" ],
-  
-  "action": {
-    "default_popup": "popup.html"
+  "description": "Sorts tabs alphabetically and switches to audio-playing tabs.",
+  "permissions": ["tabs", "<all_urls>"],
 
+  "background": {
+    "scripts": ["background.js"]
   },
-    "icons": {
 
-        "16": "icon-16.jpeg",
-        "32": "icon-32.jpeg",
-        "64": "icon-64.jpg",
-        "128": "icon-128.png"
-
-
-
+  "commands": {
+    "Tab sorter": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "This command sorts all tabs alphabetically"
     },
-
-
-    "background": {
-
-        "scripts": ["background.js"]
-
+    "tabswitchingtoaudioplayingtab": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+S"
+      },
+      "description": "Switch to the next playing audio tab"
     }
+  },
 
-
-   
-
-
-
+  "icons": {
+    "16": "icon-16.jpeg",
+    "32": "icon-32.jpeg",
+    "64": "icon-64.jpg",
+    "128": "icon-128.png"
+  }
 }
+
