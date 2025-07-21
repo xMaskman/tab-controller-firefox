@@ -22,7 +22,7 @@ PRESS SHIFT+CTRL+L to go to next audible tab.
 
 # How to change the shortcut
 
-Type about:debugging. After that double click on the extension then click on the cog wheel icon.
+Type about:addon. After that double click on the extension then click on the cog wheel icon.
 
 Select mangage Extension shortcut.
 
