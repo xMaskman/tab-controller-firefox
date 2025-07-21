@@ -10,7 +10,7 @@ Secondily, click on This firefox on the second line.
 After that, click on load extension and go to folder, where the extension is downloaded and open manifest.json. 
 
 
-Note: The extension will be temporarily will be installed. Once the extension is fully developed. I will be developing it to the firefox extension store.
+Note: The extension will be temporarily installed. Once the extension is fully developed. I will be developing it to the firefox extension store.
 
 
 # How to use the extension 
