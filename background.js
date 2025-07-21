@@ -1,4 +1,24 @@
- 
+// This array is used to store all of the index of audible tabs
+let alltabindex = []
+
+async function tabAudioCollector(){
+   let auditab = await browser.tabs.query({});
+   let audibletab = await auditab.filter(tab => tab.audible);
+  alltabindex = []
+   audibletab.forEach(tab =>{
+
+    tabindex = tab.idg
+    
+    alltabindex.push(tabindex)
+    
+
+   })
+  
+  };
+
+tabAudioCollector();
+
+
 
 browser.commands.onCommand.addListener(async (command) => {
 
@@ -53,7 +73,6 @@ browser.commands.onCommand.addListener(async (command) => {
       let tempsizelength = tempsize.length
       
       for(let i = 0;i<tempsizelength;i++){
-        console.log("Does this work?")
         let temp2 = tempsize[i]
         alltabid.push(temp2)
         
@@ -64,54 +83,49 @@ browser.commands.onCommand.addListener(async (command) => {
     for(let i = 0;i<alltabidlength;i++){
 
       await browser.tabs.move(alltabid[i],{index: i});
+}}}});
 
 
-
-    }
-
-
-    }
-
-    
-    
-  }
-
+//Listening for new tabs being created
+ browser.tabs.onCreated.addListener((tab) => {
+  tabAudioCollector();
 });
 
+
+//Listening for tabs being closed
+ browser.tabs.onRemoved.addListener((tab) =>{
+
+  tabAudioCollector();
+
+})
+// just a note async function takes before it can store data on variable
+let audibletabslength;
+let count = 0;
+
 browser.commands.onCommand.addListener(async (command) => {
+  tabAudioCollector();
+  audibletabslength = alltabindex.length;
 
+  if (command === "tabswitchingtoaudioplayingtab"){
 
-  let audibletabs = []
-
-  console.log("The command is running")
-
-  if (command === ""){
-
-    const tabaudiocollector = {}
-
-    const tabs = await browser.tabs.query({});
-    playingTabs = tabs.filter(tab => tab.audible);
-
-
-    playingTabs.forEach(tab =>{
-
-    audibletabs.push(tab.id)
-
-
-
-    })
-      
+    console.log(alltabindex)
+    console.log('Switching to tab ID:', alltabindex[count]);
+    await browser.tabs.update(alltabindex[count],{active: true})
   
-   
-  
-  
-  }
-  
-  
-  
+
+    count++;
+    count = count % audibletabslength;
+    console.log(count)
+
+    if (Number.isNaN(count)) {
+      count = 0;
+    }
+    
+
+
+}
   })
-
-   let auditab = await browser.tabs.query({});
-   let audiabletab = await auditab.filter(tab => tab.audible);
-
    
+
+
+

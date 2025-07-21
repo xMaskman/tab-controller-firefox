@@ -18,7 +18,7 @@
     },
     "tabswitchingtoaudioplayingtab": {
       "suggested_key": {
-        "default": "Ctrl+Alt+S"
+        "default": "Ctrl+Shift+L"
       },
       "description": "Switch to the next playing audio tab"
     }
