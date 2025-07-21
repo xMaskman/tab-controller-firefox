@@ -7,7 +7,7 @@ async function tabAudioCollector(){
   alltabindex = []
    audibletab.forEach(tab =>{
 
-    tabindex = tab.idg
+    tabindex = tab.id
     
     alltabindex.push(tabindex)
     
@@ -98,7 +98,7 @@ browser.commands.onCommand.addListener(async (command) => {
   tabAudioCollector();
 
 })
-// just a note async function takes before it can store data on variable
+// just a note async function takes time before it can store data on variable
 let audibletabslength;
 let count = 0;
 
