@@ -2,16 +2,17 @@
 let alltabindex = []
 
 async function tabAudioCollector(){
+
    let auditab = await browser.tabs.query({});
    let audibletab = await auditab.filter(tab => tab.audible);
-  alltabindex = []
+
+   alltabindex = []
+
    audibletab.forEach(tab =>{
 
-    tabindex = tab.id
+   tabindex = tab.id
+   alltabindex.push(tabindex)
     
-    alltabindex.push(tabindex)
-    
-
    })
   
   };
@@ -29,24 +30,29 @@ browser.commands.onCommand.addListener(async (command) => {
     const tabcollector = {}
 
     const tabs = await browser.tabs.query({});
+
     tabs.forEach(Tab =>{
-      console.log(Tab.title)
-      let tabid = Tab.id
-      let taburl = Tab.url
+
+    console.log(Tab.title)
+    let tabid = Tab.id
+    let taburl = Tab.url
 
 
-      //check if the object is already in dictionary
-      // if the dict has the object then it appends to the array
-      if(tabcollector.hasOwnProperty(taburl)){
+    //check if the object is already in dictionary
+    // if the dict has the object then it appends to the array
+    if(tabcollector.hasOwnProperty(taburl)){
 
-        tabcollector[taburl].tabid1.push(tabid)
+    tabcollector[taburl].tabid1.push(tabid)
 
-      //If the object isn't in the dict it creates an array.
-      }else{
+    //If the object isn't in the dict it creates an array.
+
+    }else{
       
-      tabcollector[taburl] = {
-        tabid1: [tabid]
-      }} 
+    tabcollector[taburl] = {
+
+    tabid1: [tabid]
+
+    }} 
 
 
   
@@ -82,7 +88,8 @@ browser.commands.onCommand.addListener(async (command) => {
     alltabidlength = alltabid.length;
     for(let i = 0;i<alltabidlength;i++){
 
-      await browser.tabs.move(alltabid[i],{index: i});
+  await browser.tabs.move(alltabid[i],{index: i});
+  
 }}}});
 
 
