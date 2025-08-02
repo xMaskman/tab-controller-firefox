@@ -1,18 +1,64 @@
-body{
-
-    background-color: lightblue;
-    background-image: url("image.png");
-    background-repeat: no-repeat;
-    background-size: auto;
+.font-group * {
+  font-family: sans-serif;
 }
 
-.example{
-  height: 200px;
-  width: 200px;
-  overflow-y: auto;     
-  border: 1px solid #ccc;
-  padding: 10px;
-  overflow-y: scroll; 
-  overflow-x: hidden;
-  font-size: 40px;    
+.special {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+
+  min-height: 100vh;
+  background-color: rgb(102, 102, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  
+}
+
+.font-group{
+  position: relative;
+  transition: 0.3 ease-in-out
+}
+
+.font-group:hover{
+  transform: translate(-2px,-2px);
+}
+
+.button{
+
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(252, 248, 248, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  transform: translate(0);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+}
+
+.button-gradient{
+
+  position: absolute;
+  background: linear-gradient(20deg,
+  rgb(161, 202, 235) 0%,
+  rgb(39, 123, 192) 100%);
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 3px;
+  transform: translate(0.5rem,00.5rem);
+
+}
+
+.button:hover{
+
+  transform: translate(2px,2px);
 }
