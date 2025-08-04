@@ -29,6 +29,14 @@
     "32": "icon-32.jpeg",
     "64": "icon-64.jpg",
     "128": "icon-128.png"
+  },
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.jpeg"
+    }
   }
 }
+
 
